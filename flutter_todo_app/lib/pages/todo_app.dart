@@ -10,7 +10,7 @@ class TodoApp extends ConsumerWidget {
   final newTodoController = TextEditingController();
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var allTodos = ref.watch(todoListProvider);
+    var allTodos = ref.watch(filteredTodoList);
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
       body: ListView(
@@ -28,7 +28,7 @@ class TodoApp extends ConsumerWidget {
           const SizedBox(
             height: 20,
           ),
-          const ToolBarWidget(),
+            ToolBarWidget(),
           for (var i = 0; i < allTodos.length; i++)
             Dismissible(
                 key: ValueKey(allTodos[i].id),
